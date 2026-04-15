@@ -6,7 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="https://giabao123123.github.io/trochoi/trochoi.css" />
+    <link
+      rel="stylesheet"
+      href="https://giabao123123.github.io/trochoi/trochoi.css"
+    />
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -781,7 +784,6 @@
         stopAllMusic();
       }
       let quiz = [
-        // ===== 1. LỄ HỘI – TÍN NGƯỠNG (8 CÂU) =====
         {
           question: "Lễ hội Yên Tử gắn liền với thiền phái nào?",
           answers: [
@@ -843,8 +845,6 @@
           answers: ["Đại Việt", "Đại Nam", "Văn Lang", "Âu Lạc"],
           correct: 0,
         },
-
-        // ===== 2. VĂN HÓA – CỘNG ĐỒNG (5 CÂU) =====
         {
           question: "Văn hóa Quảng Ninh gắn liền nhiều nhất với yếu tố nào?",
           answers: [
@@ -887,8 +887,6 @@
           answers: ["Thấp", "Trung bình", "Cao", "Rất thấp"],
           correct: 2,
         },
-
-        // ===== 3. ĐỊA LÝ – TỰ NHIÊN (5 CÂU) =====
         {
           question: "Quảng Ninh nằm ở khu vực nào của Việt Nam?",
           answers: [
@@ -929,8 +927,6 @@
           ],
           correct: 2,
         },
-
-        // ===== 4. DU LỊCH – ẨM THỰC (6 CÂU) =====
         {
           question:
             "Di sản thiên nhiên thế giới nổi tiếng của Quảng Ninh là gì?",
@@ -979,8 +975,6 @@
           answers: ["Rừng núi", "Biển", "Đồng bằng", "Sa mạc"],
           correct: 1,
         },
-
-        // ===== 5. KINH TẾ – PHÁT TRIỂN (6 CÂU) =====
         {
           question:
             "Ngành công nghiệp truyền thống nổi bật của Quảng Ninh là gì?",
@@ -1039,17 +1033,16 @@
           correct: 1,
         },
       ];
-
       let toastTimer = null;
       quiz = quiz.sort(() => Math.random() - 0.5);
       let index = 0;
       let score = 0;
       let correctCount = 0;
-      let totalTime = 10 * 60; // 10 phút
+      let totalTime = 10 * 60;
       let timer;
-      const correctSound = new Audio("./amthanh/dung.mp3"); // đúng → "Yee!"
-      const wrongSound = new Audio("./amthanh/wrong.mp3"); // sai → "Ô ồ!"
-      const finishSound = new Audio("./amthanh/end.mp3"); // 🔊 âm thanh kết thúc
+      const correctSound = new Audio("./amthanh/dung.mp3");
+      const wrongSound = new Audio("./amthanh/wrong.mp3");
+      const finishSound = new Audio("./amthanh/end.mp3");
       function showToast(message, type) {
         const toast = document.getElementById("toast");
         if (toastTimer) {
@@ -1298,11 +1291,9 @@
         const total = quiz.length;
         const correctPercent = Math.round((correctCount / total) * 100);
         const wrongPercent = 100 - correctPercent;
-
         const timeUsed = 10 * 60 - totalTime;
         const minutes = Math.floor(timeUsed / 60);
         const seconds = timeUsed % 60;
-
         let rank, emoji;
         if (score >= total * 10 * 0.9) {
           rank = "Xuất sắc";
@@ -1317,10 +1308,8 @@
           rank = "Cần cố gắng";
           emoji = "💪";
         }
-
         const text = `
 🎮 QUIZ QUẢNG NINH 🎮
-
 🏆 Điểm: ${score}
 ✅ Số câu đúng: ${correctCount}/${total}
 ❌ Số câu sai: ${wrongCount}
@@ -1328,10 +1317,8 @@
 📉 Tỷ lệ sai: ${wrongPercent}%
 ⏱ Thời gian: ${minutes} phút ${seconds} giây
 🎖 Xếp hạng: ${emoji} ${rank}
-
 🔥 Bạn có thể làm tốt hơn không? Thử ngay!
 `;
-
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard
             .writeText(text.trim())
